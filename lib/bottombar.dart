@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,12 +15,12 @@ class BottomBar extends StatelessWidget {
         return BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+              icon: Icon(CupertinoIcons.checkmark_seal),
+              label: 'todos',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.business),
-              label: 'Business',
+              icon: Icon(CupertinoIcons.qrcode),
+              label: 'QR',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.school),
@@ -30,6 +31,13 @@ class BottomBar extends StatelessWidget {
           selectedItemColor: Colors.amber[800],
           onTap: (idx) {
             context.read(bottomBarIndexProvider).state = idx;
+            switch (idx) {
+              case 0:
+                Navigator.pushNamed(context, '/');
+                break;
+              default:
+                Navigator.pushNamed(context, '/');
+            }
           },
         );
       },

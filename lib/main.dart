@@ -16,7 +16,10 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TodoApp(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => TodoApp(),
+      },
     );
   }
 }
